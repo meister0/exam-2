@@ -29,9 +29,6 @@ const fs = require('fs');
 // Получаем "запрос" из командной строки
 const query = process.argv[2];
 
-//Объявляем переменную
-let cities = {};
-
 //Функции-обертки с промисами для вывода и чтения файла
 function readFile(file, encoding = 'utf8') {
 	return new Promise((resolve, reject) => {
@@ -154,7 +151,7 @@ function checkQuantity(queryArray, tempCities) {
 				for (let i = 0; i < +quantity; i++) {
 					//Проверка на недоступность элемента(напр. запросил 500, а имеется 39 элементов)
 					if (tempCities[i] === undefined) {
-						console.log(`Доступное количество: ${i - 1}`);
+						console.log(`Доступное количество: ${i}`);
 						break;
 					}
 					//Вывод доступного количества
